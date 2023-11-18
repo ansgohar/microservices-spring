@@ -1,0 +1,15 @@
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+build:
+  version: "2.0"
+
+accounts:
+  message: "Welcome to Gohar order-management-ms related QA APIs "
+  contactDetails:
+    name: "Gohar - QA Lead"
+    email: "qa@agohar.me"
+  onCallSupport:
+    - (333) 444-1234
+    - (444) 555-1345

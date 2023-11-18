@@ -1,0 +1,6 @@
+9000 : User MS
+9100 : Product
+9200 : Order MS
+8070 : Service Discovery Eureka Server
+8071 : Config Server
+8072 : Gateway Server

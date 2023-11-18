@@ -1,0 +1,12 @@
+docker container run -d --rm -p 5432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres --name users_db postgres:latest
+
+
+
+
+# build custom image
+docker image build . -t preloaded_db:latest
+
+# start a container with the generated image
+docker container run -d --rm -p 5432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres --name preloaded_users_db preloaded_db:latest
+
+we can see in our database that the database was created. (password is postgres)

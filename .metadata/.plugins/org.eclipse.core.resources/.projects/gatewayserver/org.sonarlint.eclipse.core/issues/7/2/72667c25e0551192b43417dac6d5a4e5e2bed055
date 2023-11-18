@@ -1,0 +1,11 @@
+
+v
+java:S6813"BRemove this field injection and use constructor injection instead.b 0132ec8cee01c5dd244e1a60fe6448a1h
+‹
+java:S3305"WInject this field value directly into "postGlobalFilter", the only method that uses it.b 202d04b69d4dc224a5b51f4facac748ch
+‡
+java:S1602"SRemove useless curly braces around statement and then remove useless return keywordb f95b70fdc3088560732a5ac135644506h
+i
+java:S2209"5Change this instance-reference to a static reference.b 202d04b69d4dc224a5b51f4facac748ch
+i
+java:S2209"5Change this instance-reference to a static reference.b 202d04b69d4dc224a5b51f4facac748ch

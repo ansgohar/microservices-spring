@@ -1,0 +1,105 @@
+services:
+  configserver:
+    image: "ansgohar/configserver:v2.0"
+    container_name: configserver-ms
+    ports:
+      - "8071:8071"
+    healthcheck:
+      test: "curl --fail --silent localhost:8071/actuator/health/readiness | grep UP || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    extends:
+      file: common-config.yml
+      service: microservice-base-config
+
+  eurekaserver:
+    image: "ansgohar/eurekaserver:v2.0"
+    container_name: eurekaserver-ms
+    ports:
+      - "8070:8070"
+    healthcheck:
+      test: "curl --fail --silent localhost:8070/actuator/health/readiness | grep UP || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    extends:
+      file: common-config.yml
+      service: microservice-configserver-config
+    environment:
+      SPRING_APPLICATION_NAME: "eurekaserver"
+
+  user-profile:
+    image: "ansgohar/user-profile-ms:v2.0"
+    container_name: user-profile-ms
+    ports:
+      - "9000:9000"
+    healthcheck:
+      test: "curl --fail --silent localhost:9000/actuator/health/readiness | grep UP || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    environment:
+      SPRING_APPLICATION_NAME: "user-profile-ms"
+    extends:
+      file: common-config.yml
+      service: microservice-eureka-config
+
+  order-management:
+    image: "ansgohar/order-management-ms:v2.0"
+    container_name: order-management-ms
+    ports:
+      - "9200:9200"
+    healthcheck:
+      test: "curl --fail --silent localhost:9200/actuator/health/readiness | grep UP || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    environment:
+      SPRING_APPLICATION_NAME: "order-management-ms"
+    extends:
+      file: common-config.yml
+      service: microservice-eureka-config
+
+  product-catalogue:
+    image: "ansgohar/product-catalogue-ms:v2.0"
+    container_name: product-catalogue-ms
+    ports:
+      - "9100:9100"
+    healthcheck:
+      test: "curl --fail --silent localhost:9100/actuator/health/readiness | grep UP || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    environment:
+      SPRING_APPLICATION_NAME: "product-catalogue-ms"
+    extends:
+      file: common-config.yml
+      service: microservice-eureka-config
+
+  gatewayserver:
+    image: "ansgohar/gatewayserver:v2.0"
+    container_name: gatewayserver-ms
+    ports:
+      - "8072:8072"
+    depends_on:
+      user-profile:
+        condition: service_healthy
+      order-management:
+        condition: service_healthy
+      product-catalogue:
+        condition: service_healthy
+    environment:
+      SPRING_APPLICATION_NAME: "gatewayserver"
+    extends:
+      file: common-config.yml
+      service: microservice-eureka-config
+
+networks:
+  gohar-net:
+    driver: "bridge"

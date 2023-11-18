@@ -1,0 +1,7 @@
+
+v
+java:S6813"BRemove this field injection and use constructor injection instead.b 0132ec8cee01c5dd244e1a60fe6448a1h
+X
+java:S2629"$Invoke method(s) only conditionally.b e8b1dcdfc62b94f1fdb533b0dd31df58h
+u
+java:S1126&"AReplace this if-then-else statement by a single return statement.b 39c8942e1038872a822c0dc75eedbde3h

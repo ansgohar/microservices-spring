@@ -1,0 +1,7 @@
+
+v
+java:S68134"BRemove this field injection and use constructor injection instead.b 0132ec8cee01c5dd244e1a60fe6448a1h
+o	java:S1252"<This block of commented-out lines of code should be removed.b 838d83cae2d592906966a7a6ff138096h
+o	java:S125F"<This block of commented-out lines of code should be removed.b 24bf3c142caba896ae23936937a474dah
+ƒ
+java:S1128"ORemove this unused import 'org.springframework.beans.factory.annotation.Value'.b d562b39c69de503c853564d62c66a3cah

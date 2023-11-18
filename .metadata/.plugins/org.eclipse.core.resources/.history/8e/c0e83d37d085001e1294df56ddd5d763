@@ -1,0 +1,8 @@
+ FROM postgres:latest
+
+COPY users-DDL.sql /docker-entrypoint-initdb.d/
+
+
+
+# Comment
+RUN echo 'we are running Customized PostgreSQL container!'

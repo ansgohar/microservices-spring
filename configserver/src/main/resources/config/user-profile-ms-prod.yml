@@ -1,0 +1,15 @@
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome to Gohar user-profile-ms related Prod APIs "
+  contactDetails:
+    name: "Nabil Gohar - Production Lead"
+    email: "prod@agohar.me"
+  onCallSupport:
+    - (555) 666-1234
+    - (666) 777-1345

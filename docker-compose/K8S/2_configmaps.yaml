@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gohar-configmap
+data:
+  SPRING_PROFILES_ACTIVE: prod
+  SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
+  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eurekaserver:8070/eureka/"
+  CONFIGSERVER_APPLICATION_NAME: configserver
+  EUREKA_APPLICATION_NAME: eurekaserver
+  USER_APPLICATION_NAME: user-management-ms
+  ORDER_APPLICATION_NAME: order-management-ms
+  PRODUCT_APPLICATION_NAME: product-catalouge-ms
+  GATEWAY_APPLICATION_NAME: gatewayserver

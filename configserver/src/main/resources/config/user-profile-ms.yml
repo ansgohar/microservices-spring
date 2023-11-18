@@ -1,0 +1,11 @@
+build:
+  version: "3.0"
+
+user:
+  message: "Welcome to Gohar user-profile-ms related local APIs "
+  contactDetails:
+    name: "Ahmad Gohar - Developer"
+    email: "info@agohar.me"
+  onCallSupport:
+    - (111) 222-1234
+    - (222) 333-5678
